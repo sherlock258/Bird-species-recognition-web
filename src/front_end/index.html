@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+    <!--<script type="text/javascript" src = "http://code.jquery.com/jquery-1.9.1.min.js">
+        $(".submit").on("click", function() {
+            var file = $("#file")[0].files[0];
+            var formData = new FormData();
+            formData.append('file', file);
+
+            $.ajax({
+                url: "/api/upload",
+                method: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function() {
+                    alert("success");
+                },
+                error: function() {
+                    alert("fail");
+                }
+            })
+        })
+    </script>-->
+
+    <!--<script>
+    WIDGET = {
+        CONFIG: {
+        "layout": 1,
+        "width": "450",
+        "height": "150",
+        "background": 1,
+        "dataColor": "FFFFFF",
+        "borderRadius": 5,
+        "key": "820dbb853f824a869f16cae0b4247aa6"
+        }
+    }
+</script>-->
+<script src="https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0"></script>
+    
+</head>
+<body>
+    <div class="overlay" id="overlay">
+        <h3>Updating now...</h3>
+        <h3>your result is:  </h3>
+        
+    </div>
+    <div class="hero-bg">
+        <section class="top">
+            <header>
+                <a href="#">SearchingBirds</a>
+                <!--<div class="weather" id="he-plugin-standard" ></div>-->
+            </header>
+
+            <h1><span>The Birds </span> You Want To Find</h1>
+
+            <p> Hail to thee, blithe Spirit!<br />
+                Bird thou never wert,<br />
+                That from Heaven, or near it,<br />
+                Pourest thy full heart</br>
+                In profuse strains of unpremeditated art.<br />
+                Higher still and higher<br />
+                From the earth thou springest<br />
+                Like a cloud of fire;<br />
+                The blue deep thou wingest,<br />
+                And singing still dost soar, and soaring ever singest …  -- William Shakespeare<br />
+            </p>
+            
+            <div class="form-container">
+                <form action="" enctype="multipart/form-data">
+                    <div class="form-left">
+                        <label for="bords">Update your Photo:</label>
+                        <input id="inputFile" type="file"  accept=".jpg, .jpeg, .png" name="file" id="file"> 
+                    </div>
+                    <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+                        <input type="button" value="Update Your Photo" class="clickhere" /> 
+                    </a>
+                    <div id="light" class="white_content">
+                        <div id="font_login">THE RESULT</div>
+                        <form action="" method="post" id="form_submit">
+                            informations: it is a very beautiful birds</br>
+                            </br>
+                            <input type="button" value="确认" class="button_beautiful" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" />
+                        </form>
+                    </div>
+                    <div id="fade" class="black_overlay"></div>
+                </form>
+            </div>
+        </section>
+        <section>
+
+        </section>
+    </div>
+
+    <section class="authentic">
+        <div class="right-col">
+            <h2>Find Them. Protect Them.</h2>
+            
+            <p >Fly Up High<br />
+                In The Sky<br />
+                Spread Your Wings<br />
+                And Do Your Things<br />
+                Fly Like A Bird<br />
+                Or Like A Herd<br />
+                Wanna Fly Away From Here<br />
+                So I Could Just Be Heard</p>
+        </div>
+        <img src="images/birds1.jpg" alt="Picture of food in a bowl">
+    </section>
+</body>
+</html>

@@ -12,7 +12,7 @@ imort unzp
 !wget http://www.vision.caltech.edu/visipedia-data/CUB-200-2011/CUB_200_2011.tgz
 
 '''
-备用数据集:游研社鸟类分类
+备用数据集:AI研习社鸟类分类
 
 https://dwz.cn/ijPVPQhz
 

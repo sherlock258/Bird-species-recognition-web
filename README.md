@@ -1,2 +1,2 @@
 # Bird-species-recognition-web
-a web app  for bird species recognition
+基于深度学习的鸟类分类识别web应用

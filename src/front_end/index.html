@@ -6,45 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <title>Document</title>
     <link rel="stylesheet" href="css/main.css">
-    <!--<script type="text/javascript" src = "http://code.jquery.com/jquery-1.9.1.min.js">
-        $(".submit").on("click", function() {
-            var file = $("#file")[0].files[0];
-            var formData = new FormData();
-            formData.append('file', file);
-
-            $.ajax({
-                url: "/api/upload",
-                method: "POST",
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function() {
-                    alert("success");
-                },
-                error: function() {
-                    alert("fail");
-                }
-            })
-        })
-    </script>-->
-
-    <!--<script>
-    WIDGET = {
-        CONFIG: {
-        "layout": 1,
-        "width": "450",
-        "height": "150",
-        "background": 1,
-        "dataColor": "FFFFFF",
-        "borderRadius": 5,
-        "key": "820dbb853f824a869f16cae0b4247aa6"
-        }
-    }
-</script>-->
-<script src="https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0"></script>
     
 </head>
-<body>
+<>
     <div class="overlay" id="overlay">
         <h3>Updating now...</h3>
         <h3>your result is:  </h3>
@@ -75,15 +39,17 @@
                 <form action="" enctype="multipart/form-data">
                     <div class="form-left">
                         <label for="bords">Update your Photo:</label>
-                        <input id="inputFile" type="file"  accept=".jpg, .jpeg, .png" name="file" id="file"> 
+                        <input id="img" type="file"  accept=".jpg, .jpeg, .png" name="file" onchange="getImg(event);"> 
+                        <img id="showImg" src="" />
                     </div>
-                    <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+                    <a href="javascript:void(0);" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
                         <input type="button" value="Update Your Photo" class="clickhere" /> 
                     </a>
                     <div id="light" class="white_content">
-                        <div id="font_login">THE RESULT</div>
+                        <div id="font_login">THE RESULT</div>                           
                         <form action="" method="post" id="form_submit">
-                            informations: it is a very beautiful birds</br>
+                            <!--informations: it is a very beautiful birds</br>-->
+                                
                             </br>
                             <input type="button" value="确认" class="button_beautiful" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" />
                         </form>
@@ -113,4 +79,40 @@
         <img src="images/birds1.jpg" alt="Picture of food in a bowl">
     </section>
 </body>
+<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js" ></script>
+<script>
+    var access_token = "24.48d56a455b50a47d2d9c488ad3ffdc6b.2592000.1609058213.282335-23054511";
+    // 监听图片选择事件
+    function getImg (event) {
+        var imageBase = "";
+        var reader = new FileReader();
+        reader.readAsDataURL(event.target.files[0]);
+        reader.onload = function (e) {
+            imageBase = e.target.result.replace("data:image/png;base64,","");
+            $("#showImg").prop("src", "data:image/png;base64," + imageBase);
+            $.ajax({
+                header: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                type: "post",
+                url: "https://aip.baidubce.com/rest/2.0/ocr/v1/idcard",
+                async: true,
+                data: {
+                    access_token: access_token,
+                    id_card_side: "front",
+                    image: imageBase
+                },
+                dataType: "jsonp",
+                timeout: 30000,
+                success: function (data) {
+                    console.log("解析成功");
+                    console.log(data);
+                },
+                error: function (xhr) {
+                    console.log("请求解析失败");
+                }
+            });
+        }
+    }
+</script>
 </html>
